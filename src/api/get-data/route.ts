@@ -1,11 +1,12 @@
-import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { success, fail } from "@/lib/response";
 
 export async function GET() {
   try {
     const data = await prisma.data.findMany({});
-    return NextResponse.json({ data, status: 200 }, { status: 200 });
+    return success(data, 200);
   } catch (err) {
-    return NextResponse.json({ error: err, status: 400 }, { status: 400 });
+    console.error(err);
+    return fail("Failed to fetch data", 500, "FETCH_FAILED");
   }
 }

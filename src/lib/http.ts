@@ -1,5 +1,6 @@
 import axios from "axios";
 import { ApiError } from "./api-error";
+import { ApiResponse } from "@/infra/interface/response";
 
 const http = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -13,19 +14,21 @@ http.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response) {
-      const data = error.response.data;
+      const data = error.response.data as ApiResponse<unknown>;
 
       return Promise.reject(
         new ApiError(
-          data?.error?.message || "Request failed",
-          data?.error?.code,
-          error.response.status,
+          data?.error || "Request failed",
+          data?.status,
+          data.statusCode,
         ),
       );
     }
 
     if (error.request) {
-      return Promise.reject(new ApiError("Network error", "NETWORK_ERROR"));
+      return Promise.reject(
+        new ApiError("Network error", 500, "NETWORK_ERROR"),
+      );
     }
 
     return Promise.reject(new ApiError(error.message));

@@ -11,8 +11,8 @@ export function handleError(error: unknown): string {
       return "กรุณา login ใหม่";
     }
 
-    if (error.code && errorMessages[error.code]) {
-      return errorMessages[error.code];
+    if (error.statusCode && errorMessages[error.statusCode]) {
+      return errorMessages[error.statusCode];
     }
 
     return error.message;

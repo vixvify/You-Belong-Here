@@ -1,7 +1,7 @@
 import { SceneUrls } from "./video_url";
 import { ScenesDataType } from "@/core/domain/scene";
 
-const baseScenes: ScenesDataType = Object.fromEntries(
+const commonScenes: ScenesDataType = Object.fromEntries(
   Array.from({ length: 50 }, (_, i) => {
     const id = i + 1;
     const key = `scene_${id}`;
@@ -18,9 +18,7 @@ const baseScenes: ScenesDataType = Object.fromEntries(
   }),
 );
 
-export const ScenesData: ScenesDataType = {
-  ...baseScenes,
-
+const customScenes: ScenesDataType = {
   scene_10: {
     video: SceneUrls.scene_10,
     next: null,
@@ -31,4 +29,9 @@ export const ScenesData: ScenesDataType = {
       C: "",
     },
   },
+};
+
+export const ScenesData: ScenesDataType = {
+  ...commonScenes,
+  ...customScenes,
 };

@@ -23,9 +23,6 @@ export default function TransitionOverlay({
       <div className="fixed inset-0 bg-black z-50 pointer-events-none animate-blink-twice" />
     );
   }
-  if (type === "fade") {
-    return <div className={`${base} bg-black/30 animate-fade-transparent`} />;
-  }
 
   return null;
 }

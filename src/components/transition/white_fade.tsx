@@ -4,7 +4,7 @@ type props = {
   active: boolean;
 };
 
-export default function Transition({ active }: props) {
+export default function WhiteFadeTransition({ active }: props) {
   return (
     <div
       className={`

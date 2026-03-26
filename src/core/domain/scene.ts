@@ -4,13 +4,23 @@ export type Choice = {
   C: string;
 };
 
-export type SceneType = "common" | "choice";
+export type choiceNext = {
+  nextA: string;
+  nextB: string;
+  nextC: string;
+};
+
+export type SceneType = "common" | "choice" | "input";
+
+export type TransitionType = "white-fade" | "black-fade" | "blink" | "cut";
 
 export type Scene = {
   video: string | undefined;
   next: string | null;
   type: SceneType;
   choice: Choice | null;
+  choiceNext?: choiceNext;
+  transition: TransitionType;
 };
 
 export type ScenesDataType = {

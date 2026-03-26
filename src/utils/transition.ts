@@ -1,24 +1,25 @@
-function wait(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
+"use client";
 
-async function runTransition(
-  setTransition: (value: boolean) => void,
-  duration = 700,
-) {
-  setTransition(true);
-  await wait(duration);
-}
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { TransitionType } from "@/core/domain/scene";
 
-export async function changeVideoWithTransition(
-  video: HTMLVideoElement,
-  src: string,
-  setTransition: (value: boolean) => void,
-) {
-  await runTransition(setTransition);
+export function useSceneTransition() {
+  const router = useRouter();
+  const [transition, setTransition] = useState<TransitionType | null>(null);
 
-  video.src = src;
-  video.play();
+  const goTo = (next: string, type: TransitionType) => {
+    if (type === "cut") {
+      router.replace(`/scenes/${next}`);
+      return;
+    }
 
-  setTransition(false);
+    setTransition(type);
+
+    setTimeout(() => {
+      router.replace(`/scenes/${next}`);
+    }, 300);
+  };
+
+  return { transition, goTo };
 }

@@ -13,6 +13,7 @@ const commonScenes: ScenesDataType = Object.fromEntries(
         next: id < 50 ? `scene_${id + 1}` : null,
         type: "common",
         choice: null,
+        transition: "white-fade",
       },
     ];
   }),
@@ -28,6 +29,12 @@ const customScenes: ScenesDataType = {
       B: "",
       C: "",
     },
+    choiceNext: {
+      nextA: "",
+      nextB: "",
+      nextC: "",
+    },
+    transition: "blink",
   },
 };
 

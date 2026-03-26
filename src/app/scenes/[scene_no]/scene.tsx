@@ -5,7 +5,7 @@ import { CommonScene } from "@/components/commonScene";
 import { ChoiceScene } from "@/components/choiceScene";
 import InputScene from "@/components/inputScene";
 import { Scene } from "@/core/domain/scene";
-import TransitionOverlay from "@/components/transition/transition_overlay";
+import TransitionOverlay from "@/components/transition_overlay";
 
 const SceneComponentMap = {
   common: CommonScene,

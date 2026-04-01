@@ -1,46 +1,54 @@
 "use client";
 
-import { Scene } from "@/core/domain/scene";
-import { TransitionType } from "@/core/domain/scene";
-
-type SceneProps = {
-  scene: Scene;
-  goTo: (next: string, type: TransitionType) => void;
-};
+import { SceneProps } from "@/core/domain/scene";
+import Image from "next/image";
 
 export function ChoiceScene({ scene, goTo }: SceneProps) {
-  if (scene.choice) {
+  if (scene.choice && scene.format === "image") {
     return (
-      <div>
-        <video src={scene.src} autoPlay />
-
-        <button
-          onClick={() => {
-            if (scene.choiceNext) {
-              goTo(scene.choiceNext?.nextA, scene.transition ?? "cut");
-            }
-          }}
-        >
-          {scene.choice.A}
-        </button>
-        <button
-          onClick={() => {
-            if (scene.choiceNext) {
-              goTo(scene.choiceNext?.nextB, scene.transition ?? "cut");
-            }
-          }}
-        >
-          {scene.choice.B}
-        </button>
-        <button
-          onClick={() => {
-            if (scene.choiceNext) {
-              goTo(scene.choiceNext?.nextC, scene.transition ?? "cut");
-            }
-          }}
-        >
-          {scene.choice.C}
-        </button>
+      <div
+        className="relative w-full h-screen"
+        onClick={() => {
+          if (scene.next) {
+            goTo(scene.next, scene.transition ?? "cut");
+          }
+        }}
+      >
+        {scene.src && (
+          <Image
+            src={scene.src}
+            alt="bg"
+            width={1000}
+            height={1920}
+            className="w-full h-screen"
+          ></Image>
+        )}
+        <h1 className="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold">
+          {scene.text}
+        </h1>
+      </div>
+    );
+  } else {
+    return (
+      <div
+        className="relative w-full h-screen"
+        onClick={() => {
+          if (scene.next) {
+            goTo(scene.next, scene.transition ?? "cut");
+          }
+        }}
+      >
+        {scene.src && (
+          <video
+            src={scene.src}
+            width={1000}
+            height={1920}
+            className="w-full h-screen"
+          ></video>
+        )}
+        <h1 className="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold">
+          {scene.text}
+        </h1>
       </div>
     );
   }

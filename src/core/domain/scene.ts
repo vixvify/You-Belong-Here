@@ -19,11 +19,14 @@ export type TransitionType =
   | "cut"
   | "fade";
 
+export type Format = "video" | "image";
+
 export type Scene = {
   src: string | undefined;
   text: string;
   next: string | null;
   type: SceneType;
+  format: Format;
   choice: Choice | null;
   choiceNext?: choiceNext;
   transition: TransitionType;
@@ -31,4 +34,9 @@ export type Scene = {
 
 export type ScenesDataType = {
   [key: string]: Scene;
+};
+
+export type SceneProps = {
+  scene: Scene;
+  goTo: (next: string, type: TransitionType) => void;
 };

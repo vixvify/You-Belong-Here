@@ -3,7 +3,7 @@
 import { useSceneTransition } from "@/utils/transition";
 import { CommonScene } from "@/components/commonScene";
 import { ChoiceScene } from "@/components/choiceScene";
-import InputScene from "@/components/inputScene";
+import { InputScene } from "@/components/inputScene";
 import { Scene } from "@/core/domain/scene";
 
 const SceneComponentMap = {

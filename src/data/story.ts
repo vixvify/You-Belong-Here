@@ -14,6 +14,7 @@ const commonScenes: ScenesDataType = Object.fromEntries(
         next: id < 50 ? `scene_${id + 1}` : null,
         text: SceneText[key as keyof typeof SceneText],
         type: "common",
+        format: "image",
         choice: null,
         transition: "white-fade",
       },
@@ -27,6 +28,7 @@ const customScenes: ScenesDataType = {
     next: null,
     text: "",
     type: "choice",
+    format: "video",
     choice: {
       A: "",
       B: "",

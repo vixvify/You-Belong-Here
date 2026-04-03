@@ -5,7 +5,6 @@ export type TransitionType =
   | "black-fade"
   | "blink"
   | "cut"
-  | "fade";
 
 export type Format = "video" | "image";
 

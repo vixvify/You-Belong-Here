@@ -2,11 +2,11 @@ import { SceneProps } from "@/core/domain/scene";
 
 export default function Custom1({ scene, goTo }: SceneProps) {
   return (
-    <div className="w-full h-screen flex items-center justify-center">
+    <div className="flex items-center justify-center w-full h-screen">
       <div className="text-center animate-fade-in-common">
-        <h1 className="text-3xl font-bold mb-6">คำเตือน</h1>
+        <h1 className="mb-6 text-xl font-bold">คำเตือน</h1>
 
-        <div className="text-gray-800 leading-7 space-y-2 text-[15px]">
+        <div className="text-gray-800 leading-5 space-y-4 text-[13px]">
           <p>เนื้อหานี้ถูกออกแบบในรูปแบบเกม</p>
           <p>เพื่อสำรวจและทำความเข้าใจตนเอง</p>
           <p>
@@ -32,7 +32,7 @@ export default function Custom1({ scene, goTo }: SceneProps) {
         </div>
 
         <button
-          className="mt-10 text-gray-900 underline hover:text-black transition cursor-pointer"
+          className="mt-10 text-gray-900 underline transition cursor-pointer hover:text-black"
           onClick={() => {
             if (scene.next) {
               goTo(scene.next, scene.transition ?? "cut");

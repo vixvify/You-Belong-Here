@@ -1,8 +1,8 @@
 export default function Custom3() {
   return (
-    <div className="w-full h-screen  flex items-center justify-center">
+    <div className="flex items-center justify-center w-full h-screen">
       <div className="text-center">
-        <div className="space-y-6 text-gray-800 leading-relaxed">
+        <div className="space-y-6 text-gray-800 leading-relaxed text-[13px]">
           <p>คุณ...คุณคนนั้น</p>
 
           <p>
@@ -19,7 +19,7 @@ export default function Custom3() {
           <p>บางทีที่นี่อาจกำลังรอคุณอยู่</p>
         </div>
 
-        <button className="mt-10 px-8 py-3 bg-gray-300 hover:bg-gray-400 transition rounded-xl text-gray-800">
+        <button className="px-8 py-2 mt-10 text-gray-800 transition bg-gray-300 rounded-md hover:bg-gray-400">
           เริ่มต้น
         </button>
       </div>

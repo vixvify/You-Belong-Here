@@ -5,7 +5,7 @@ import Image from "next/image";
 import CommonOverlay from "../overlay/Common";
 
 export function CommonScene({ scene, goTo }: SceneProps) {
-  if (!scene.src) {
+  if (!scene.src && scene.text) {
     return <CommonOverlay text={scene.text} />;
   }
   if (scene.format === "image") {
@@ -27,7 +27,7 @@ export function CommonScene({ scene, goTo }: SceneProps) {
             className="w-full h-screen"
           ></Image>
         )}
-        <h1 className="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold">
+        <h1 className="absolute inset-0 flex items-center justify-center text-3xl font-bold text-white">
           {scene.text}
         </h1>
       </div>
@@ -50,7 +50,7 @@ export function CommonScene({ scene, goTo }: SceneProps) {
             className="w-full h-screen"
           ></video>
         )}
-        <h1 className="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold">
+        <h1 className="absolute inset-0 flex items-center justify-center text-3xl font-bold text-white">
           {scene.text}
         </h1>
       </div>

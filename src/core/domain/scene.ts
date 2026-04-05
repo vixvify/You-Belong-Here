@@ -1,31 +1,21 @@
-export type CustomSceneKey = "custom1" | "custom2" | "custom3";
+import { Choice, ChoiceNext } from "./choice";
+import { TransitionType } from "./transition";
+import { CustomSceneKey } from "./custom-scene";
 
 export type SceneType = "common" | "choice" | "input" | CustomSceneKey;
 
-export type TransitionType = "white-fade" | "black-fade" | "blink" | "cut";
-
 export type Format = "video" | "image";
 
-export type Choice = {
-  A: string;
-  B: string;
-  C: string;
-};
-
-export type choiceNext = {
-  nextA: string;
-  nextB: string;
-  nextC: string;
-};
-
 export type Scene = {
-  src: string | undefined;
-  text: string;
+  src?: string;
+  text?: string;
   next: string | null;
   type: SceneType;
-  format: Format;
-  choice: Choice | null;
-  choiceNext?: choiceNext;
+  format?: Format;
+  choice?: Choice;
+  choiceNext?: ChoiceNext;
+  inputField?: string;
+  buttonText?: string;
   transition: TransitionType;
 };
 

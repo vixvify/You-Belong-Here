@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { TransitionType } from "@/core/domain/scene";
+import { TransitionType } from "@/core/domain/transition";
 import { useTransitionStore } from "@/store/transition";
 
 export function useSceneTransition() {

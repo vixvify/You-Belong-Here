@@ -1,9 +1,9 @@
 import { CommonScene } from "@/components/scene/Common";
 import { ChoiceScene } from "@/components/scene/Choice";
 import { InputScene } from "@/components/scene/Input";
-import Custom1 from "@/components/scene/custom/Custom_1";
-import Custom2 from "@/components/scene/custom/Custom_2";
-import Custom3 from "@/components/scene/custom/Custom_3";
+import Custom1 from "@/components/scene/custom/Custom-1";
+import Custom2 from "@/components/scene/custom/Custom-2";
+import Custom3 from "@/components/scene/custom/Custom-3";
 import CommonOverlay from "@/components/overlay/Common";
 import ChoiceOverlay from "@/components/overlay/Choice";
 import InputOverlay from "@/components/overlay/Input";

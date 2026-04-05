@@ -1,9 +1,14 @@
 import { create } from "zustand";
 import { TransitionType } from "@/core/domain/scene";
 
+type Phase = "enter" | "exit";
+
 type State = {
-  transition: TransitionType | null;
-  setTransition: (t: TransitionType | null) => void;
+  transition: {
+    type: TransitionType;
+    phase: Phase;
+  } | null;
+  setTransition: (t: { type: TransitionType; phase: Phase } | null) => void;
 };
 
 export const useTransitionStore = create<State>((set) => ({

@@ -1,7 +1,7 @@
 "use client";
 
 import { useTransitionStore } from "@/store/transition";
-import { transitionFadeTypeMap } from "@/core/constants/fade_transition";
+import { transitionFadeTypeMap } from "@/core/constants/fade-transition";
 
 export default function TransitionOverlay() {
   const transition = useTransitionStore((s) => s.transition);

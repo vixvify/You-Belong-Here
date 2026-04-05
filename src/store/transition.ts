@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { TransitionType } from "@/core/domain/scene";
+import { TransitionType } from "@/core/domain/transition";
 
 type Phase = "enter" | "exit";
 

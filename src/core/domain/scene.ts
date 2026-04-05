@@ -1,10 +1,8 @@
-export type SceneType = "common" | "choice" | "input";
+export type CustomSceneKey = "custom1" | "custom2" | "custom3";
 
-export type TransitionType =
-  | "white-fade"
-  | "black-fade"
-  | "blink"
-  | "cut"
+export type SceneType = "common" | "choice" | "input" | CustomSceneKey;
+
+export type TransitionType = "white-fade" | "black-fade" | "blink" | "cut";
 
 export type Format = "video" | "image";
 
@@ -39,5 +37,3 @@ export type SceneProps = {
   scene: Scene;
   goTo: (next: string, type: TransitionType) => void;
 };
-
-

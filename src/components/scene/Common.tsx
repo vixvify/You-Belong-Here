@@ -2,8 +2,12 @@
 
 import { SceneProps } from "@/core/domain/scene";
 import Image from "next/image";
+import CommonOverlay from "../overlay/Common";
 
 export function CommonScene({ scene, goTo }: SceneProps) {
+  if (!scene.src) {
+    return <CommonOverlay text={scene.text} />;
+  }
   if (scene.format === "image") {
     return (
       <div

@@ -23,12 +23,12 @@ const commonScenes: ScenesDataType = Object.fromEntries(
 );
 
 const customScenes: ScenesDataType = {
-  scene_10: {
-    src: SceneUrls.scene_10,
-    next: null,
+  scene_1: {
+    src: "",
+    next: "scene_2",
     text: "",
-    type: "choice",
-    format: "video",
+    type: "custom1",
+    format: "image",
     choice: {
       A: "",
       B: "",
@@ -39,7 +39,43 @@ const customScenes: ScenesDataType = {
       nextB: "",
       nextC: "",
     },
-    transition: "blink",
+    transition: "white-fade",
+  },
+  scene_2: {
+    src: "",
+    next: "scene_3",
+    text: "",
+    type: "custom2",
+    format: "image",
+    choice: {
+      A: "",
+      B: "",
+      C: "",
+    },
+    choiceNext: {
+      nextA: "",
+      nextB: "",
+      nextC: "",
+    },
+    transition: "white-fade",
+  },
+  scene_3: {
+    src: "",
+    next: "scene_4",
+    text: "",
+    type: "custom3",
+    format: "image",
+    choice: {
+      A: "",
+      B: "",
+      C: "",
+    },
+    choiceNext: {
+      nextA: "",
+      nextB: "",
+      nextC: "",
+    },
+    transition: "white-fade",
   },
 };
 

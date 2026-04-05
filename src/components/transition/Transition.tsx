@@ -1,28 +1,17 @@
-import { TransitionType } from "@/core/domain/scene";
+"use client";
 
-export default function TransitionOverlay({
-  type,
-}: {
-  type: TransitionType | null;
-}) {
-  if (!type) return null;
+import { useTransitionStore } from "@/store/transition";
 
-  const base =
-    "absolute inset-0 z-50 pointer-events-none transition-opacity ease-in-out";
+export default function TransitionOverlay() {
+  const transition = useTransitionStore((s) => s.transition);
 
-  if (type === "black-fade") {
-    return <div className={`${base} bg-black animate-fade-in-out`} />;
-  }
+  if (!transition) return null;
 
-  if (type === "white-fade") {
-    return <div className={`${base} bg-white animate-fade-in-out`} />;
-  }
+  const { type, phase } = transition;
 
-  if (type === "blink") {
-    return (
-      <div className="fixed inset-0 bg-black z-50 pointer-events-none animate-blink-twice" />
-    );
-  }
+  const base = "absolute inset-0 z-50 pointer-events-none";
+  const bg = type === "white-fade" ? "bg-white" : "bg-black";
+  const anim = phase === "enter" ? "animate-fade-in" : "animate-fade-out";
 
-  return null;
+  return <div className={`${base} ${bg} ${anim}`} />;
 }

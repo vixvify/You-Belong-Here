@@ -8,7 +8,7 @@ export default function Custom2({ scene, goTo }: SceneProps) {
           <label className="font-semibold text-black">ชื่อ</label>
           <input
             type="text"
-            placeholder="text ..."
+            placeholder="name ..."
             className="w-64 px-4 py-3 rounded-xl bg-gray-300 text-gray-600 placeholder-gray-500 outline-none"
           />
         </div>
@@ -17,7 +17,7 @@ export default function Custom2({ scene, goTo }: SceneProps) {
           <label className="font-semibold text-black">อายุ</label>
           <input
             type="text"
-            placeholder="text ..."
+            placeholder="age ..."
             className="w-64 px-4 py-3 rounded-xl bg-gray-300 text-gray-600 placeholder-gray-500 outline-none"
           />
         </div>
